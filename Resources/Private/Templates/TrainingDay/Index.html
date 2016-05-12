@@ -1,0 +1,22 @@
+{namespace hh=Posit\HtmlHelper\ViewHelper}
+<f:layout name="Default" />
+<f:section name="Title"><f:translate id="trainingDay.index-title"/></f:section>
+<f:section name="Content">
+    <f:security.ifAccess resource="Dropesoft.TrainingDay.Edit.TrainingDayController">
+        <f:then>
+            <hh:simpleList id="trainingDayList" ajaxUrl="rest/Dropesoft.TrainingDay/trainingDayJson/listAll"  dataIdentifier="__identity"
+            editLink="Dropesoft.TrainingDay/trainingDay/edit?trainingDay%5B__identity%5D=" columns="{trainigPlan:'trainingDay.column-trainigPlan',day:'trainingDay.column-day',week:'trainingDay.column-week',period:'trainingDay.column-period',description:'trainingDay.column-description',executed:'trainingDay.column-executed',note:'trainingDay.column-note',dateExecute:'trainingDay.column-dateExecute',type:'trainingDay.column-type',}"
+            class="table table-striped table-bordered" cellspacing="0" width="100%" />
+        </f:then>
+        <f:else>
+            <hh:simpleList id="trainingDayList" ajaxUrl="rest/Dropesoft.TrainingDay/trainingDayJson/listAll"  dataIdentifier="__identity"
+            columns="{trainigPlan:'trainingDay.column-trainigPlan',day:'trainingDay.column-day',week:'trainingDay.column-week',period:'trainingDay.column-period',description:'trainingDay.column-description',executed:'trainingDay.column-executed',note:'trainingDay.column-note',dateExecute:'trainingDay.column-dateExecute',type:'trainingDay.column-type',}"
+            class="table table-striped table-bordered" cellspacing="0" width="100%" />
+        </f:else>
+    </f:security.ifAccess>
+    <div class="button-bar">
+        <f:security.ifAccess resource="Dropesoft.TrainingDay.New.TrainingDayController">
+            <f:link.action action="new" class="btn btn-primary" arguments="{trainingPlan:trainingPlan}"><f:translate id="trainingDay.new-action"/></f:link.action>
+        </f:security.ifAccess>
+    </div>
+</f:section>

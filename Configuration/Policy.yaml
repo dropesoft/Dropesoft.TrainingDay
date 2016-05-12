@@ -1,0 +1,45 @@
+resources:
+  methods:
+    # Dropesoft.TrainingDay
+    Dropesoft.TrainingDay.Index.TrainingPlanController: 'method(Dropesoft\TrainingDay\Controller\TrainingPlanController->(index|initialize)Action(.*))'
+    Dropesoft.TrainingDay.New.TrainingPlanController: 'method(Dropesoft\TrainingDay\Controller\TrainingPlanController->(new)Action(.*))'
+    Dropesoft.TrainingDay.Edit.TrainingPlanController: 'method(Dropesoft\TrainingDay\Controller\TrainingPlanController->(edit|update)Action(.*))'
+    Dropesoft.TrainingDay.ListAll.TrainingPlanController: 'method(Dropesoft\TrainingDay\Controller\TrainingPlanJsonController->(listAll)Action(.*))'
+
+    Dropesoft.TrainingDay.Index.TrainingDayController: 'method(Dropesoft\TrainingDay\Controller\TrainingDayController->(index|initialize)Action(.*))'
+    Dropesoft.TrainingDay.New.TrainingDayController: 'method(Dropesoft\TrainingDay\Controller\TrainingDayController->(new)Action(.*))'
+    Dropesoft.TrainingDay.Edit.TrainingDayController: 'method(Dropesoft\TrainingDay\Controller\TrainingDayController->(edit|update)Action(.*))'
+    Dropesoft.TrainingDay.ListAll.TrainingDayController: 'method(Dropesoft\TrainingDay\Controller\TrainingDayJsonController->(listAll)Action(.*))'
+
+
+acls:
+  Posit.Intranet:Administrator:
+    methods:
+      Dropesoft.TrainingDay.Index.TrainingPlanController: GRANT
+      Dropesoft.TrainingDay.New.TrainingPlanController: GRANT
+      Dropesoft.TrainingDay.Edit.TrainingPlanController: GRANT
+      Dropesoft.TrainingDay.ListAll.TrainingPlanController: GRANT
+
+  Posit.Intranet:UserApp:
+    methods:
+      Dropesoft.TrainingDay.Index.TrainingPlanController: GRANT
+      Dropesoft.TrainingDay.New.TrainingPlanController: GRANT
+      Dropesoft.TrainingDay.Edit.TrainingPlanController: GRANT
+      Dropesoft.TrainingDay.ListAll.TrainingPlanController: GRANT
+
+      Dropesoft.TrainingDay.Index.TrainingDayController: GRANT
+      Dropesoft.TrainingDay.New.TrainingDayController: GRANT
+      Dropesoft.TrainingDay.Edit.TrainingDayController: GRANT
+      Dropesoft.TrainingDay.ListAll.TrainingDayController: GRANT
+
+  Posit.Intranet:User:
+    methods:
+      Dropesoft.TrainingDay.Index.TrainingPlanController: GRANT
+      Dropesoft.TrainingDay.New.TrainingPlanController: GRANT
+      Dropesoft.TrainingDay.Edit.TrainingPlanController: GRANT
+      Dropesoft.TrainingDay.ListAll.TrainingPlanController: GRANT
+
+      Dropesoft.TrainingDay.Index.TrainingDayController: GRANT
+      Dropesoft.TrainingDay.New.TrainingDayController: GRANT
+      Dropesoft.TrainingDay.Edit.TrainingDayController: GRANT
+      Dropesoft.TrainingDay.ListAll.TrainingDayController: GRANT

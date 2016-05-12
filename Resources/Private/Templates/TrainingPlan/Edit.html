@@ -1,0 +1,41 @@
+{namespace hh=Posit\HtmlHelper\ViewHelper}
+<f:layout name="Default" />
+<f:section name="Title"><f:translate id="trainingPlan.edit-title"/></f:section>
+<f:section name="Content">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <f:form action="update" object="{trainingPlan}" objectName="trainingPlan">
+            <div class="form-group">
+                <label for="title"><f:translate id="trainingPlan.title"/> <span class="span-required">*</span></label>
+                <hh:stringfield id="title" mask=""  repeat=""  greedy="" property="title" value="{trainingPlan.title}" required="TRUE" class="form-control" /> 
+            </div>
+            <div class="form-group">
+                <label for="disable"><f:translate id="trainingPlan.disable"/> </label>
+                <hh:booleanfield id="disable" property="disable" value="{trainingPlan.disable->f:format.number(decimals:0)}"   class="form-control" /> 
+            </div>
+            <div class="form-group">
+                <label for="note"><f:translate id="trainingPlan.note"/> </label>
+                <hh:stringfield id="note" mask=""  repeat=""  greedy="" property="note" value="{trainingPlan.note}"  class="form-control" /> 
+            </div>
+            <div class="form-group">
+                <label for="app"><f:translate id="trainingPlan.app"/> </label>
+                <f:form.textfield id="app" property="app" value="{trainingPlan.app}"  class="form-control" /> 
+            </div>
+            <div class="button-bar">
+                <f:link.action action="index" class="btn btn-default">
+                    <f:translate id="general.cancel"/>
+                </f:link.action>
+                <button type="submit" class="btn btn-primary" id="submit-form">
+                    <f:translate id="general.save"/>
+                </button>
+                <f:security.ifAccess resource="Dropesoft.TrainingDay.Delete.TrainingPlanController">
+                <f:link.action action="delete" class="btn btn-danger delete-action-link" arguments="{trainingPlan:trainingPlan}">
+                    <f:translate id="general.delete"/>
+                </f:link.action>
+                </f:security.ifAccess>
+            </div>
+            <span class="span-required-msg"><f:translate id="general.msg-field-required"/></span>
+        </f:form>
+        </div>
+    </div>
+</f:section>

@@ -1,0 +1,24 @@
+{namespace hh=Posit\HtmlHelper\ViewHelper}
+<f:layout name="Default" />
+<f:section name="Title"><f:translate id="trainingPlan.index-title"/></f:section>
+<f:section name="Content">
+    <f:security.ifAccess resource="Dropesoft.TrainingDay.Edit.TrainingPlanController">
+        <f:then>
+            <hh:simpleList id="trainingPlanList" ajaxUrl="rest/Dropesoft.TrainingDay/trainingPlanJson/listAll"  dataIdentifier="__identity"
+            editLink="Dropesoft.TrainingDay/trainingPlan/edit?trainingPlan%5B__identity%5D="
+            detailLink="Dropesoft.TrainingDay/trainingDay/index?trainingPlan%5B__identity%5D="
+            columns="{title:'trainingPlan.column-title',disable:'trainingPlan.column-disable',note:'trainingPlan.column-note',app:'trainingPlan.column-app',}"
+            class="table table-striped table-bordered" cellspacing="0" width="100%" />
+        </f:then>
+        <f:else>
+            <hh:simpleList id="trainingPlanList" ajaxUrl="rest/Dropesoft.TrainingDay/trainingPlanJson/listAll"  dataIdentifier="__identity"
+            columns="{title:'trainingPlan.column-title',disable:'trainingPlan.column-disable',note:'trainingPlan.column-note',app:'trainingPlan.column-app',}"
+            class="table table-striped table-bordered" cellspacing="0" width="100%" />
+        </f:else>
+    </f:security.ifAccess>
+    <div class="button-bar">
+        <f:security.ifAccess resource="Dropesoft.TrainingDay.New.TrainingPlanController">
+            <f:link.action action="new" class="btn btn-primary"><f:translate id="trainingPlan.new-action"/></f:link.action>
+        </f:security.ifAccess>
+    </div>
+</f:section>

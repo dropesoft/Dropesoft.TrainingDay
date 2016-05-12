@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+        <file original="" product-name="Mrimann.XliffTranslator" source-language="en" target-language="de" datatype="plaintext">
+                <body>
+                        <trans-unit id="document.index-title" xml:space="preserve">
+                                <source>Contact List</source>
+                                <target>Kontaktliste</target>
+                        </trans-unit>
+                         <trans-unit id="assistance.newMessageAllert" xml:space="preserve">
+                                <source>Pin has new message</source>
+                                <target>Pin has new message</target>
+                          </trans-unit>
+
+                </body>
+        </file>
+</xliff>

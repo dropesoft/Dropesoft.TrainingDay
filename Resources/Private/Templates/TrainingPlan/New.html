@@ -1,0 +1,32 @@
+{namespace hh=Posit\HtmlHelper\ViewHelper}
+<f:layout name="Default" />
+<f:section name="Title"><f:translate id="trainingPlan.new-title"/></f:section>
+<f:section name="Content">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <f:form action="create" objectName="trainingPlan">
+            <div class="form-group">
+                <label for="title"> <f:translate id="trainingPlan.title"/>  <span class="span-required">*</span></label>
+                <hh:stringfield id="title" mask=""  repeat=""  greedy="" property="title" required="TRUE" class="form-control" /> 
+            </div>
+            <div class="form-group">
+                <label for="disable"> <f:translate id="trainingPlan.disable"/>  </label>
+                <hh:booleanfield id="disable" property="disable"  class="form-control" /> 
+            </div>
+            <div class="form-group">
+                <label for="note"> <f:translate id="trainingPlan.note"/>  </label>
+                <hh:stringfield id="note" mask=""  repeat=""  greedy="" property="note"  class="form-control" /> 
+            </div>
+            <div class="button-bar">
+                <f:link.action action="index" class="btn btn-default">
+                    <f:translate id="general.cancel"/>
+                </f:link.action>
+                <button type="submit" class="btn btn-primary" id="submit-form">
+                    <f:translate id="general.save"/>
+                </button>
+            </div>
+            <span class="span-required-msg"><f:translate id="general.msg-field-required"/></span>
+            </f:form>
+        </div>
+    </div>
+</f:section>
