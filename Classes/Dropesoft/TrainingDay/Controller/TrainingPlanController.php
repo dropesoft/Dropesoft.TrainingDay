@@ -4,8 +4,7 @@ namespace Dropesoft\TrainingDay\Controller;
  * This script belongs to the TYPO3 Flow package "Dropesoft.TrainingDay". *
  *                                                                        *
  *                                                                        */
-use Posit\Intranet\Domain\Model\UserPreferences;
-use Posit\MarketPlace\Domain\Model\App;
+
 use TYPO3\Flow\Annotations as Flow;
 use Dropesoft\TrainingDay\Domain\Model\TrainingPlan;
 class TrainingPlanController extends \Posit\MarketPlace\Controller\AbstractBaseController {
@@ -36,16 +35,6 @@ class TrainingPlanController extends \Posit\MarketPlace\Controller\AbstractBaseC
         {
             $this->view->assign('trainingPlans', $this->trainingPlanRepository->findAll());
         }
-		// Da inserire i fase di registrazione utente
-		else if($this->getCurrentRole() == "Posit.Intranet:User")
-		{
-			/** @var UserPreferences $preferences */
-			$preferences =  $this->getCurrentUser()->getPreferences();
-			$appIdentifier = $preferences->get('app');
-			$input = array('__identity' => $appIdentifier);
-			$currentApp = $this->propertyMapper->convert($input, App::class);
-			$this->view->assign('trainingPlans', $this->trainingPlanRepository->findByAppAndOwner($currentApp, $this->getCurrentUser()));
-		}
 		else
 		{
 			$this->view->assign('trainingPlans', $this->trainingPlanRepository->findByAppAndOwner($this->getCurrentApp(), $this->getCurrentUser()));

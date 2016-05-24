@@ -51,6 +51,20 @@ class TrainingPlan {
      * @ORM\Column(nullable=true)
      */
     protected $owner;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection<\Dropesoft\TrainingDay\Domain\Model\TrainingDay>
+     * @ORM\OneToMany(targetEntity="\Dropesoft\TrainingDay\Domain\Model\TrainingDay", mappedBy="trainingPlan",
+    cascade={"all"}, orphanRemoval=true)
+     * @ORM\OrderBy({"day" = "DESC"})
+     */
+    protected $days;
+
+    function __construct()
+    {
+        $this->days = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * @return string
      */
@@ -129,6 +143,22 @@ class TrainingPlan {
     public function setOwner($owner)
     {
         $this->owner = $owner;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getDays()
+    {
+        return $this->days;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $days
+     */
+    public function setDays($days)
+    {
+        $this->days = $days;
     }
 
 }

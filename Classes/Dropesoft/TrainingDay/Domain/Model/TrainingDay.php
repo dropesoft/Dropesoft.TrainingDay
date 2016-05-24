@@ -24,7 +24,7 @@ class TrainingDay {
      * @var \Dropesoft\TrainingDay\Domain\Model\TrainingPlan;
      * @ORM\ManyToOne(targetEntity="\Dropesoft\TrainingDay\Domain\Model\TrainingPlan")
      */
-    protected $trainigPlan;
+    protected $trainingPlan;
     /**
      * @var int
      * @PAN\Generate(type="numeric")
@@ -74,18 +74,20 @@ class TrainingDay {
     /**
      * @return TrainingPlan
      */
-    public function getTrainigPlan()
+    public function getTrainingPlan()
     {
-        return $this->trainigPlan;
+        return $this->trainingPlan;
     }
 
     /**
-     * @param TrainingPlan $trainigPlan
+     * @param TrainingPlan $trainingPlan
      */
-    public function setTrainigPlan($trainigPlan)
+    public function setTrainingPlan($trainingPlan)
     {
-        $this->trainigPlan = $trainigPlan;
+        $this->trainingPlan = $trainingPlan;
     }
+
+
 
     /**
      * @return int

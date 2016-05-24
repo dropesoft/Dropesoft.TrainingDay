@@ -25,24 +25,23 @@
                 <label for="description"><f:translate id="trainingDay.description"/> </label>
                 <hh:stringfield id="description" mask=""  repeat=""  greedy="" property="description" value="{trainingDay.description}"  class="form-control" /> 
             </div>
+            <!--
             <div class="form-group">
                 <label for="executed"><f:translate id="trainingDay.executed"/> </label>
                 <hh:booleanfield id="executed" property="executed" value="{trainingDay.executed->f:format.number(decimals:0)}"   class="form-control" /> 
             </div>
+            -->
             <div class="form-group">
                 <label for="note"><f:translate id="trainingDay.note"/> </label>
                 <hh:stringfield id="note" mask=""  repeat=""  greedy="" property="note" value="{trainingDay.note}"  class="form-control" /> 
             </div>
-            <div class="form-group">
-                <label for="dateExecute"><f:translate id="trainingDay.dateExecute"/> </label>
-                <hh:datefield id="dateExecute" property="dateExecute" value="{trainingDay.dateExecute}"  class="form-control" /> 
-            </div>
+
             <div class="form-group">
                 <label for="type"><f:translate id="trainingDay.type"/> </label>
                 <f:form.textfield id="type" property="type" value="{trainingDay.type}"  class="form-control" /> 
             </div>
             <div class="button-bar">
-                <f:link.action action="index" class="btn btn-default">
+                <f:link.action action="index" arguments="{trainingPlan: trainingPlan}" class="btn btn-default">
                     <f:translate id="general.cancel"/>
                 </f:link.action>
                 <button type="submit" class="btn btn-primary" id="submit-form">

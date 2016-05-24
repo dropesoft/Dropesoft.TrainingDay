@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <f:form action="create" objectName="trainingDay">
-            <f:form.hidden id="trainigPlan" property="trainigPlan" value="{trainigPlan}"  class="form-control" />
+            <f:form.hidden id="trainingPlan" property="trainingPlan" value="{trainingPlan}"  class="form-control" />
             <div class="form-group">
                 <label for="day"> <f:translate id="trainingDay.day"/>  </label>
                 <hh:numericfield id="day" mask=""  repeat=""  greedy="" property="day"  class="form-control" /> 
@@ -43,7 +43,7 @@
                 <f:form.textfield id="type" property="type"  class="form-control" />
             </div>
             <div class="button-bar">
-                <f:link.action action="index" class="btn btn-default">
+                <f:link.action action="index" arguments="{trainingPlan: trainingPlan}" class="btn btn-default">
                     <f:translate id="general.cancel"/>
                 </f:link.action>
                 <button type="submit" class="btn btn-primary" id="submit-form">

@@ -41,16 +41,16 @@ class TrainingDayController extends \Posit\MarketPlace\Controller\AbstractBaseCo
      * @param TrainingPlan $trainingPlan
      */
     public function newAction(TrainingPlan $trainingPlan){
+		$this->view->assign('trainingPlan', $trainingPlan);
 	}
 	/**
 	 * @param \Dropesoft\TrainingDay\Domain\Model\TrainingDay $trainingDay
 	 * @return void
 	 */
 	public function createAction(TrainingDay $trainingDay) {
-		$trainingDay->setApp($this->getCurrentApp());
 		$this->trainingDayRepository->add($trainingDay);
 		$this->addFlashMessage($this->translateById("general.success"));
-		$this->redirect('index');
+		$this->redirect('index', 'TrainingDay', 'Dropesoft.TrainingDay', array('trainingPlan' => $trainingDay->getTrainingPlan()));
 	}
 	/**
 	 * @param \Dropesoft\TrainingDay\Domain\Model\TrainingDay $trainingDay
@@ -66,7 +66,7 @@ class TrainingDayController extends \Posit\MarketPlace\Controller\AbstractBaseCo
 	public function updateAction(TrainingDay $trainingDay) {
 		$this->trainingDayRepository->update($trainingDay);
 		$this->addFlashMessage($this->translateById("general.success"));
-		$this->redirect('index');
+		$this->redirect('index', 'TrainingDay', 'Dropesoft.TrainingDay', array('trainingPlan'=> $trainingDay->getTrainingPlan()));
 	}
 	/**
 	 * @param \Dropesoft\TrainingDay\Domain\Model\TrainingDay $trainingDay
@@ -76,6 +76,6 @@ class TrainingDayController extends \Posit\MarketPlace\Controller\AbstractBaseCo
 		$this->trainingDayRepository->remove($trainingDay);
 		$this->persistenceManager->persistAll();
 		$this->addFlashMessage($this->translateById("general.success"));
-		$this->redirect('index');
+		$this->redirect('index', 'TrainingDay', 'Dropesoft.TrainingDay', array('trainingPlan'=> $trainingDay->getTrainingPlan()));
 	}
 }
