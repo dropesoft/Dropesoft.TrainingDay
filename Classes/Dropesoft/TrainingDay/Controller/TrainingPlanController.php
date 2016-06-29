@@ -37,6 +37,7 @@ class TrainingPlanController extends \Posit\MarketPlace\Controller\AbstractBaseC
         }
 		else
 		{
+			//var_dump($this->getCurrentApp());
 			$this->view->assign('trainingPlans', $this->trainingPlanRepository->findByAppAndOwner($this->getCurrentApp(), $this->getCurrentUser()));
 		}
     }

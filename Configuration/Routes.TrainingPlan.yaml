@@ -1,0 +1,23 @@
+- name: TraininPlan REST API POST call
+  uriPattern: ''
+  defaults:
+    '@action': 'create'
+  httpMethods: ['POST']
+
+- name: TraininPlan REST API GET call
+  uriPattern: '/{<entity>}'
+  defaults:
+    '@action': 'show'
+  httpMethods: ['GET']
+
+- name: TraininPlan REST API PUT call
+  uriPattern: '/{<entity>}'
+  defaults:
+    '@action': 'update'
+  httpMethods: ['PUT']
+
+- name: TraininPlan REST API DELETE call
+  uriPattern: '/{<entity>}'
+  defaults:
+    '@action': 'delete'
+  httpMethods: ['DELETE']
